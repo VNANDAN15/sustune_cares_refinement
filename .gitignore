@@ -1,0 +1,44 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+
+# Production build
+/build
+
+# Misc & System
+.DS_Store
+*.pem
+Thumbs.db
+*.log
+.tunnel
+scratch/
+
+# Local env files
+.env*.local
+.env
+
+# Vercel & Deployment
+.vercel
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Heavy media & raw archives
+/Sustune_videos/
+/Sustune_Care_Phase1_Digital_and_PrePress_Assets-20261023T043525Z-1-001/
+*.pdf
+
+# Allow optimized public video assets
+!/public/videos/*.mp4
+
+# Reference raw HTML files
+/sustune_care_landing_page.html
+/sustune_care_single_page_website.html
