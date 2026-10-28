@@ -88,20 +88,28 @@ export const SharedHeader: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 sm:h-16">
-            {/* Official Logo — Full-colour horizontal lockup */}
+            {/* Official Logo — 3D Heraldic Emblem + Brand Wordmark */}
             <Link
               href="/"
-              className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-brand-cerulean rounded-md p-1"
+              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-gold/50 rounded-lg p-1 transition-all"
               aria-label="Sustune Care — Home"
             >
-              <div className="relative h-10 sm:h-12 w-[180px] sm:w-[220px] flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 shrink-0 drop-shadow-[0_2px_8px_rgba(201,151,56,0.25)] transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/brand/sustune_logo_horizontal_lockup.svg"
-                  alt="Sustune Care"
+                  src="/brand/sustune_emblem_@3x.png"
+                  alt="Sustune Care 3D Heraldic Emblem"
                   fill
-                  className="object-contain object-left"
                   priority
+                  className="object-contain"
                 />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-heading font-black text-xl sm:text-2xl tracking-tight text-brand-marine group-hover:text-brand-cerulean transition-colors leading-tight">
+                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-400 to-brand-gold bg-clip-text text-transparent">CARE</span>
+                </span>
+                <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mt-0.5">
+                  Property Stewardship · Family Care
+                </span>
               </div>
             </Link>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
   Mail,
@@ -186,15 +187,27 @@ export const ContactClient: React.FC = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Verified Contact Information & Operational Details */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="space-y-3">
-                <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">
-                  Contact Our Leadership
-                </span>
-                <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-marine tracking-tight">
-                  Schedule Your NRI Consultation
-                </h1>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Whether you require property stewardship in Hyderabad or medical companion support for parents in Bengaluru, our executive team is ready to structure a tailored agreement.
+              <div className="space-y-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-12 h-12 rounded-2xl bg-white border border-brand-gold/40 p-1 shadow-sm shrink-0 drop-shadow-sm">
+                    <Image
+                      src="/brand/sustune_emblem_@3x.png"
+                      alt="Sustune Care Official Emblem"
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-brand-gold uppercase tracking-wider block">
+                      SUSTUNE CARE · EXECUTIVE DESK
+                    </span>
+                    <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-brand-marine tracking-tight">
+                      Schedule Your Consultation
+                    </h1>
+                  </div>
+                </div>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Connect with our coordination teams in Hyderabad and Bengaluru to structure an institutional stewardship agreement.
                 </p>
               </div>
 

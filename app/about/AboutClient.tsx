@@ -46,9 +46,14 @@ export const AboutClient: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
               {/* Left Column: Heading & Value Proposition */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-gold-light border border-brand-gold/30 flex items-center justify-center text-brand-gold font-bold text-xl shrink-0">
-                    <Award className="w-6 h-6" />
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-14 h-14 shrink-0 drop-shadow-md">
+                    <Image
+                      src="/brand/sustune_emblem_@3x.png"
+                      alt="Sustune Care Heraldic Emblem"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                   <div>
                     <span className="text-xs font-bold text-brand-gold uppercase tracking-widest block">

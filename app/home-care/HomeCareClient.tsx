@@ -65,13 +65,18 @@ export const HomeCareClient: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
               {/* Left Column: Heading & Value Proposition */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-sky-100 border border-brand-cerulean/30 flex items-center justify-center text-brand-cerulean font-bold text-xl shrink-0">
-                    <Stethoscope className="w-6 h-6" />
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-14 h-14 rounded-2xl bg-white border border-brand-cerulean/40 p-1.5 shadow-sm shrink-0 drop-shadow-sm">
+                    <Image
+                      src="/brand/sustune_emblem_@3x.png"
+                      alt="Sustune Care Official Emblem"
+                      fill
+                      className="object-contain p-1"
+                    />
                   </div>
                   <div>
                     <span className="text-xs font-bold text-brand-cerulean uppercase tracking-widest block">
-                      CLINICAL &amp; SUPPORTED LIVING PATHWAYS
+                      SUSTUNE CARE · HOME &amp; PERSONAL CARE
                     </span>
                     <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-brand-marine tracking-tight">
                       Home &amp; Personal Care

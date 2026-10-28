@@ -9,14 +9,14 @@ import {
   Building,
   Heart,
   Stethoscope,
-  CheckCircle2,
-  ShieldCheck,
+  Shield,
   Home,
-  Leaf,
-  HeartHandshake,
+  Waves,
+  HandHeart,
   Video,
+  Check,
 } from "lucide-react";
-import { BRAND_INFO, FOUR_BRAND_PILLARS } from "@/data/content";
+import { BRAND_INFO } from "@/data/content";
 import { VIDEOS } from "@/data/videos";
 import { VideoDeviceCard } from "@/components/VideoDeviceCard";
 import { GuidedServiceFinder } from "@/components/GuidedServiceFinder";
@@ -24,168 +24,255 @@ import { GuidedServiceFinder } from "@/components/GuidedServiceFinder";
 export const HomePageClient: React.FC = () => {
   const launchVideo = VIDEOS.launch;
 
-  const pillarsIconMap: Record<string, React.ReactNode> = {
-    ShieldCheck: <ShieldCheck className="w-5 h-5" />,
-    Home: <Home className="w-5 h-5" />,
-    Leaf: <Leaf className="w-5 h-5" />,
-    HeartHandshake: <HeartHandshake className="w-5 h-5" />,
-  };
+  const emblemSymbols = [
+    {
+      id: "shield",
+      title: "The Golden Shield",
+      meaning: "Institutional Protection & Trust",
+      description: "A legally registered Private Limited umbrella with structured fiduciary accountability.",
+      icon: <Shield className="w-6 h-6 text-brand-gold" />,
+      accent: "border-brand-gold/40 hover:border-brand-gold",
+      tag: "GOVERNANCE",
+    },
+    {
+      id: "roof",
+      title: "The Home & Hearth",
+      meaning: "Aegis Property Stewardship",
+      description: "Active oversight of residential assets, vacant homes, tenant vetting, and video walkthroughs.",
+      icon: <Home className="w-6 h-6 text-amber-400" />,
+      accent: "border-amber-400/40 hover:border-amber-400",
+      tag: "ASSET CARE",
+    },
+    {
+      id: "ribbon",
+      title: "The Flowing 'S'",
+      meaning: "Sparsh Family Care",
+      description: "Continuous health coordination, clinic escorts, digitized doctor logs, and companionship.",
+      icon: <Waves className="w-6 h-6 text-brand-emerald" />,
+      accent: "border-brand-emerald/40 hover:border-brand-emerald",
+      tag: "FAMILY CARE",
+    },
+    {
+      id: "hands",
+      title: "The Cradling Hands",
+      meaning: "Dignified Personal Living",
+      description: "In-home assistance, hygiene support, and compassionate recovery in the comfort of home.",
+      icon: <HandHeart className="w-6 h-6 text-brand-cerulean" />,
+      accent: "border-brand-cerulean/40 hover:border-brand-cerulean",
+      tag: "HOME SUPPORT",
+    },
+  ];
 
   return (
     <>
-      {/* ===== (2) VISUAL-FIRST HERO SECTION ===== */}
-      {/* As specified in Section 7.1:
-          - Large relevant photograph
-          - One short headline
-          - One supporting sentence
-          - Subtle scroll cue linking directly to #service-arms
-          - Hero buttons ('Request a Consultation' and 'Take 2-Min NRI Survey') removed
-          - No portrait launch video as full-width background
-      */}
+      {/* ========================================================================= */}
+      {/* (1) HERO SECTION: SHOWSTOPPING 3D GOLD EMBLEM & SUSTUNE CARE BRAND HIGHLIGHT */}
+      {/* ========================================================================= */}
       <section
         id="home"
-        className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-slate-900 text-white border-b border-brand-gold/30"
+        className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-marine-deep via-brand-marine to-slate-950 text-white border-b border-brand-gold/30"
       >
-        {/* Background Editorial Architectural / Care Atmosphere Image */}
+        {/* Subtle Architectural Ambient Layer */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/about-corporate-hero.jpg"
-            alt="Sustune Care — Institutional Asset Stewardship & Healthcare Atmosphere"
+            alt="Sustune Care Institutional Atmosphere"
             fill
             priority
-            className="object-cover object-center opacity-25 filter brightness-90"
+            className="object-cover object-center opacity-10 filter brightness-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-brand-marine/90 to-brand-marine-deep/95" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-          {/* Operational Status Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-brand-gold/50 text-brand-gold text-xs font-semibold tracking-wide uppercase shadow-sm backdrop-blur-md">
-            <ShieldCheck className="w-4 h-4 text-brand-gold shrink-0" />
-            <span>Institutional Governance · Hyderabad &amp; Bengaluru Hubs</span>
-          </div>
-
-          {/* One Short Headline */}
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.15]">
-            Bridging the{" "}
-            <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent">
-              Anxiety of Distance
-            </span>{" "}
-            for Global Indians
-          </h1>
-
-          {/* One Supporting Sentence */}
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
-            Institutional asset stewardship and compassionate family healthcare in Hyderabad &amp; Bengaluru, structured specifically for non-resident Indians.
-          </p>
-
-          {/* Trust Metrics Pill Strip */}
-          <div className="pt-4 pb-2 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300 font-medium">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-brand-emerald" />
-              <span>FEMA &amp; RBI Banking Guidelines Adhered To</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-brand-gold" />
-              <span>Pvt Ltd Registered Entity in India</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-brand-cerulean" />
-              <span>Dual Arm: Asset &amp; Family Care</span>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6 sm:space-y-8">
+          {/* Main Big Highlight: Official 3D Heraldic Emblem */}
+          <div className="relative inline-block">
+            {/* Ambient Gold Glow Filter */}
+            <div className="absolute inset-0 bg-brand-gold/25 rounded-full blur-3xl transform scale-150 pointer-events-none" />
+            
+            <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto drop-shadow-[0_20px_40px_rgba(201,151,56,0.4)] transition-transform duration-500 hover:scale-105">
+              <Image
+                src="/brand/sustune_emblem_@3x.png"
+                alt="Sustune Care 3D Heraldic Emblem"
+                fill
+                priority
+                className="object-contain"
+              />
             </div>
           </div>
 
-          {/* Subtle Scroll Cue linking to Service Arms */}
-          <div className="pt-8">
+          {/* Main Brand Title & Monogram */}
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-brand-gold/60 text-brand-gold text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase shadow-lg backdrop-blur-md">
+              <Shield className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+              <span>The Official Emblem of Care &amp; Stewardship</span>
+            </div>
+
+            <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-none">
+              SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent drop-shadow-sm">CARE</span>
+            </h1>
+
+            <p className="text-base sm:text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed pt-1">
+              Institutional Asset Stewardship &amp; Compassionate Family Healthcare in Hyderabad &amp; Bengaluru.
+            </p>
+          </div>
+
+          {/* Visual Pathway Anchors (Zero Text Clutter) */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 pt-1 text-xs font-semibold text-slate-200">
             <a
               href="#service-arms"
-              className="inline-flex flex-col items-center gap-2 text-xs font-semibold text-slate-400 hover:text-brand-gold transition-colors group"
-              aria-label="Scroll down to explore Our Dedicated Service Arms"
+              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-gold flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
             >
-              <span className="tracking-wider uppercase text-[11px]">Explore Our Service Arms</span>
-              <div className="w-8 h-8 rounded-full border border-slate-700 group-hover:border-brand-gold flex items-center justify-center transition-all group-hover:translate-y-1">
-                <ArrowDown className="w-4 h-4" />
+              <Building className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+              <span>Aegis Property</span>
+            </a>
+            <a
+              href="#service-arms"
+              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-emerald flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
+            >
+              <Heart className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
+              <span>Sparsh Family</span>
+            </a>
+            <a
+              href="#service-arms"
+              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-cerulean flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
+            >
+              <Stethoscope className="w-3.5 h-3.5 text-brand-cerulean shrink-0" />
+              <span>Home &amp; Personal Care</span>
+            </a>
+          </div>
+
+          {/* Smooth Scroll Cue */}
+          <div className="pt-4">
+            <a
+              href="#emblem-meaning"
+              className="inline-flex flex-col items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-gold transition-colors group"
+              aria-label="Scroll down to understand the emblem"
+            >
+              <span className="tracking-widest uppercase text-[10px]">Explore Sustune Care</span>
+              <div className="w-7 h-7 rounded-full border border-slate-700 group-hover:border-brand-gold flex items-center justify-center transition-transform group-hover:translate-y-1">
+                <ArrowDown className="w-3.5 h-3.5" />
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ===== (3) OUR DEDICATED SERVICE ARMS ===== */}
-      {/* Exactly approved copy:
-          OUR DEDICATED SERVICE ARMS
-          One Organization. Specialized Dedicated Arms.
-          Explore our core pathways below. Each operates with dedicated personnel, specialized protocols, and complete digital transparency.
-      */}
-      <section id="service-arms" className="py-20 bg-brand-mist/40 border-b border-slate-200 scroll-mt-20">
+      {/* ========================================================================= */}
+      {/* (2) DECODING THE EMBLEM: LESS READING, INSTANT UNDERSTANDING */}
+      {/* ========================================================================= */}
+      <section id="emblem-meaning" className="py-16 md:py-20 bg-white border-b border-slate-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-cerulean">
-              OUR DEDICATED SERVICE ARMS
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-brand-gold">
+              Brand Architecture
             </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-marine tracking-tight">
-              One Organization. Specialized Dedicated Arms.
+            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-brand-marine tracking-tight">
+              One Crest. Four Core Commitments.
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Explore our core pathways below. Each operates with dedicated personnel, specialized protocols, and complete digital transparency.
+            <p className="text-slate-600 text-xs sm:text-sm">
+              Every detail in our heraldic emblem reflects a verified service arm for families living globally.
             </p>
           </div>
 
-          {/* Three visually distinct, fully clickable cards */}
+          {/* 4 Visual Symbolic Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {emblemSymbols.map((item) => (
+              <div
+                key={item.id}
+                className={`p-6 rounded-2xl bg-slate-50/70 border ${item.accent} transition-all duration-300 hover:bg-white hover:shadow-subtle-card flex flex-col justify-between group`}
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-200/80 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+                    <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest px-2 py-0.5 rounded bg-slate-100 border border-slate-200">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-heading font-bold text-base text-brand-marine">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs font-semibold text-brand-gold mt-0.5">
+                      {item.meaning}
+                    </p>
+                  </div>
+
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* (3) DEDICATED SERVICE ARMS: VISUAL-FIRST, TRIMMED CONTENT */}
+      {/* ========================================================================= */}
+      <section id="service-arms" className="py-20 bg-brand-mist/40 border-b border-slate-200 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-cerulean">
+              OUR SERVICE ARMS
+            </span>
+            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-brand-marine tracking-tight">
+              Specialized Divisions. Direct Transparency.
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm">
+              Tap any pathway below for dedicated personnel, protocols, and digital reports.
+            </p>
+          </div>
+
+          {/* Three Large Visual Cards (Trimmed, Crisp) */}
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {/* Card 1: Aegis Property Stewardship */}
             <Link
               href="/aegis"
               className="bg-white rounded-card overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-subtle-card hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-brand-gold"
-              aria-label="Explore Aegis Property Stewardship"
             >
               <div>
-                <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
                   <Image
                     src="/images/aegis-property-stewardship-hero.jpg"
-                    alt="Aegis Property Stewardship — Luxury Residential Assets in Hyderabad & Bengaluru"
+                    alt="Aegis Property Stewardship"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <span className="absolute bottom-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-brand-marine/90 text-brand-gold border border-brand-gold/40 backdrop-blur-sm">
                     PROPERTY STEWARDSHIP
                   </span>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-4">
-                  <div>
-                    <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
-                      Aegis Property Stewardship
-                    </h3>
-                    <p className="text-xs font-semibold text-slate-500 mt-1">
-                      Professional property oversight and asset stewardship for owners living away from their properties.
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Institutional oversight for your Indian property — from tenant screening and vacant asset guardianship to HD video walkthroughs and remittance coordination.
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
+                    Aegis Property Stewardship
+                  </h3>
+                  <p className="text-xs text-slate-500 line-clamp-2">
+                    Professional oversight for overseas owners: physical custody, verified tenant leases, and video audit logs.
                   </p>
 
-                  <ul className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Tenant vetting &amp; lease management</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>HD video inspection walkthroughs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>FEMA &amp; RBI banking guidelines followed</span>
-                    </li>
-                  </ul>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Tenant Vetting
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> HD Video Audits
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> FEMA Remittances
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-7 pt-0 mt-4 border-t border-slate-100">
-                <div className="w-full py-3 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-marine group-hover:bg-slate-800 text-white">
+              <div className="p-6 pt-0 mt-3">
+                <div className="w-full py-2.5 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-marine group-hover:bg-slate-800 text-white">
                   <span>Explore Aegis</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -196,55 +283,45 @@ export const HomePageClient: React.FC = () => {
             <Link
               href="/sparsh"
               className="bg-white rounded-card overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-subtle-card hover:border-brand-emerald/60 transition-all duration-300 flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-brand-emerald"
-              aria-label="Explore Sparsh Family Care"
             >
               <div>
-                <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
                   <Image
                     src="/images/sparsh-family-care-hero.jpg"
-                    alt="Sparsh Family Care — Compassionate Support for Aging Parents"
+                    alt="Sparsh Family Care"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <span className="absolute bottom-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-brand-marine/90 text-brand-emerald-light border border-brand-emerald/40 backdrop-blur-sm">
                     FAMILY &amp; ELDER CARE
                   </span>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-4">
-                  <div>
-                    <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
-                      Sparsh Family Care
-                    </h3>
-                    <p className="text-xs font-semibold text-slate-500 mt-1">
-                      Compassionate support that helps families coordinate care and stay connected with loved ones.
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Background-verified, language-matched companions who escort your parents to doctor visits, coordinate medications, and provide genuine presence.
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
+                    Sparsh Family Care
+                  </h3>
+                  <p className="text-xs text-slate-500 line-clamp-2">
+                    Compassionate coordination for aging parents: doctor clinic escorts, digitized medical notes, and companionship.
                   </p>
 
-                  <ul className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Companion visits &amp; social interaction</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Doctor escorts &amp; digitized health logs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Emergency response protocols</span>
-                    </li>
-                  </ul>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Doctor Escorts
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Digital Health Logs
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Warm Companionship
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-7 pt-0 mt-4 border-t border-slate-100">
-                <div className="w-full py-3 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-emerald group-hover:bg-brand-emerald-dark text-white">
+              <div className="p-6 pt-0 mt-3">
+                <div className="w-full py-2.5 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-emerald group-hover:bg-brand-emerald-dark text-white">
                   <span>Explore Sparsh</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -255,55 +332,45 @@ export const HomePageClient: React.FC = () => {
             <Link
               href="/home-care"
               className="bg-white rounded-card overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-subtle-card hover:border-brand-cerulean/60 transition-all duration-300 flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-brand-cerulean"
-              aria-label="Explore Home & Personal Care"
             >
               <div>
-                <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
                   <Image
                     src="/images/home-care-hero.jpg"
-                    alt="Home and Personal Care — In-Home Supported Living & Recovery"
+                    alt="Home and Personal Care"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <span className="absolute bottom-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-brand-marine/90 text-sky-200 border border-brand-cerulean/40 backdrop-blur-sm">
                     IN-HOME SUPPORTED LIVING
                   </span>
                 </div>
 
-                <div className="p-6 sm:p-7 space-y-4">
-                  <div>
-                    <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
-                      Home &amp; Personal Care
-                    </h3>
-                    <p className="text-xs font-semibold text-slate-500 mt-1">
-                      Personalized support for everyday living, independence, and recovery at home.
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    From daily personal care routines and post-hospital orthopedic rehabilitation to dedicated live-in companion specialists.
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-cerulean transition-colors">
+                    Home &amp; Personal Care
+                  </h3>
+                  <p className="text-xs text-slate-500 line-clamp-2">
+                    Respectful daily living assistance: personal hygiene, mobility prompts, and hospital recovery bridge.
                   </p>
 
-                  <ul className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Domiciliary &amp; personal hygiene care</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Post-acute hospital recovery bridge</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0 mt-0.5" />
-                      <span>Complex live-in care specialist pairing</span>
-                    </li>
-                  </ul>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Domiciliary Hygiene
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Post-Hospital Care
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700">
+                      <Check className="w-3 h-3 text-brand-emerald" /> Live-in Specialists
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-7 pt-0 mt-4 border-t border-slate-100">
-                <div className="w-full py-3 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-cerulean group-hover:bg-brand-marine text-white">
+              <div className="p-6 pt-0 mt-3">
+                <div className="w-full py-2.5 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-cerulean group-hover:bg-brand-marine text-white">
                   <span>Explore Home Care</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -313,47 +380,51 @@ export const HomePageClient: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== (4) OFFICIAL BRAND LAUNCH FILM ===== */}
-      {/* Placed below the service arms, in a portrait frame beside a short caption,
-          with poster, accessible controls, no heavy overlay, no autoplay with sound.
-      */}
+      {/* ========================================================================= */}
+      {/* (4) OFFICIAL BRAND LAUNCH FILM (CLEAN VISUAL CHASSIS) */}
+      {/* ========================================================================= */}
       <section id="launch-film" className="py-20 bg-white border-b border-slate-200 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Video Device Frame */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Device Frame */}
+            <div className="lg:col-span-5 flex flex-col items-center">
               <div className="w-full text-center space-y-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-brand-marine text-[11px] font-bold uppercase tracking-wider border border-slate-200">
                   <Video className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Official Brand Launch Film (22s)</span>
+                  <span>Official Launch Film (22s)</span>
                 </div>
                 <VideoDeviceCard video={launchVideo} />
               </div>
             </div>
 
-            {/* Right Column: Narrative & Purpose */}
+            {/* Right Column: Visual Value Cards */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-gold">
-                The Sustune Care Vision
-              </span>
-              <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-brand-marine tracking-tight">
-                Two Lifelines. One Accountable Corporate Umbrella.
-              </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Global distance creates genuine anxiety: managing vacant family property across time zones and worrying about aging parents attending medical visits alone. Sustune Care was built to resolve both under one legally accountable corporate foundation.
-              </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Rather than relying on unvetted informal brokers or burdening extended relatives, you gain a dedicated proxy partner with background-checked personnel, digital logs, and clear operational SLAs.
-              </p>
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-brand-gold">
+                  The Sustune Assurance
+                </span>
+                <h2 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-brand-marine tracking-tight">
+                  Two Vital Lifelines. One Accountable Corporate Foundation.
+                </h2>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Managing distant property and coordinating healthcare for aging parents requires absolute trust. Sustune Care unites both under legally accountable Private Limited governance.
+                </p>
+              </div>
 
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                  <div className="font-bold text-brand-marine">Institutional Governance</div>
-                  <div className="text-slate-500">Pvt Ltd company with structured protocols and verifiable ground audits.</div>
+                  <div className="font-bold text-brand-marine flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-brand-gold" />
+                    <span>Private Limited Entity</span>
+                  </div>
+                  <p className="text-slate-500">Corporate protocols, contract compliance, and vetted ground staff.</p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                  <div className="font-bold text-brand-marine">Digital Transparency</div>
-                  <div className="text-slate-500">Objective notes, photos, and video walkthroughs directly after every visit.</div>
+                  <div className="font-bold text-brand-marine flex items-center gap-2">
+                    <Check className="w-4 h-4 text-brand-emerald" />
+                    <span>Direct Video Audits</span>
+                  </div>
+                  <p className="text-slate-500">Objective notes, photos, and video walkthroughs directly to your device.</p>
                 </div>
               </div>
             </div>
@@ -361,87 +432,48 @@ export const HomePageClient: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== (5) BRIEF UNIFIED-BRAND & FOUR BRAND PILLARS ===== */}
-      <section id="pillars" className="py-20 bg-brand-mist/30 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-gold">
-              Our Foundation
-            </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-marine tracking-tight">
-              The Four Pillars of Sustune Care
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Every operation across property stewardship and family healthcare is anchored in the geometric symbiosis of our heraldic emblem.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {FOUR_BRAND_PILLARS.map((pillar) => (
-              <div
-                key={pillar.id}
-                className={`p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-subtle-card ${pillar.borderColorClass} flex flex-col justify-between`}
-              >
-                <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold ${pillar.colorClass}`}>
-                    {pillarsIconMap[pillar.iconName] || <ShieldCheck className="w-6 h-6" />}
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                      Symbol: {pillar.symbol}
-                    </span>
-                    <h3 className="font-heading font-bold text-base text-brand-marine mt-0.5">
-                      {pillar.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-xs font-bold text-brand-cerulean hover:text-brand-marine transition-colors"
-            >
-              <span>Learn about our Corporate Story, Governance &amp; Founders</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== (6) GUIDED SERVICE FINDER ===== */}
+      {/* ========================================================================= */}
+      {/* (5) GUIDED SERVICE FINDER (INTERACTIVE 2-STEP SELECTOR) */}
+      {/* ========================================================================= */}
       <GuidedServiceFinder />
 
-      {/* ===== (7) CONSULTATION PATHWAY ===== */}
-      <section className="py-20 bg-brand-marine text-white relative overflow-hidden">
+      {/* ========================================================================= */}
+      {/* (6) CONSULTATION ACTION STRIP */}
+      {/* ========================================================================= */}
+      <section className="py-16 bg-brand-marine text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C99738_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          <h2 className="font-heading font-extrabold text-2xl sm:text-4xl tracking-tight">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 relative z-10">
+          <div className="relative w-16 h-16 mx-auto drop-shadow-md">
+            <Image
+              src="/brand/sustune_emblem_@3x.png"
+              alt="Sustune Care Emblem"
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <h2 className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tight">
             Ready to Protect What Matters Most?
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Whether you need property oversight in Hyderabad or compassionate family assistance in Bengaluru, our executive team is ready to structure a tailored agreement for your needs.
+          <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto">
+            Directly connect with our executive coordination desk in Hyderabad or Bengaluru.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-btn bg-brand-cerulean hover:bg-white hover:text-brand-marine text-white font-bold text-sm shadow-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-btn bg-brand-cerulean hover:bg-white hover:text-brand-marine text-white font-bold text-sm shadow-lg transition-all duration-200"
             >
-              <span>Request a Consultation</span>
+              <span>Schedule Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href={`https://wa.me/${BRAND_INFO.whatsapp.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-btn bg-slate-800/90 border border-slate-700 hover:border-brand-gold text-slate-200 font-semibold text-sm transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-btn bg-slate-800/90 border border-slate-700 hover:border-brand-gold text-slate-200 font-semibold text-sm transition-all"
             >
-              <span>WhatsApp Priority Line</span>
+              <span>WhatsApp Direct</span>
             </a>
           </div>
         </div>

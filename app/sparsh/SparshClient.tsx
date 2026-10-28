@@ -70,13 +70,18 @@ export const SparshClient: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
               {/* Left Column: Heading & Value Proposition */}
               <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-emerald-light border border-brand-emerald/30 flex items-center justify-center text-brand-emerald font-bold text-xl shrink-0">
-                    <Heart className="w-6 h-6" />
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-14 h-14 rounded-2xl bg-white border border-brand-emerald/40 p-1.5 shadow-sm shrink-0 drop-shadow-sm">
+                    <Image
+                      src="/brand/sustune_emblem_@3x.png"
+                      alt="Sustune Care Official Emblem"
+                      fill
+                      className="object-contain p-1"
+                    />
                   </div>
                   <div>
                     <span className="text-xs font-bold text-brand-emerald uppercase tracking-widest block">
-                      ELDERLY SUPPORT &amp; FAMILY ASSISTANCE
+                      SUSTUNE CARE · FAMILY &amp; ELDER CARE
                     </span>
                     <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-brand-marine tracking-tight">
                       SPARSH Family Care

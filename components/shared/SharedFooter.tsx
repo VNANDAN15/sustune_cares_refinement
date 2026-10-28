@@ -15,18 +15,23 @@ export const SharedFooter: React.FC = () => {
           {/* Col 1: Brand & Identity */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-9 h-9">
+              <div className="relative w-12 h-12 shrink-0 drop-shadow-[0_2px_10px_rgba(201,151,56,0.3)] transition-transform group-hover:scale-105">
                 <Image
-                  src="/brand/sustune_emblem_standalone.svg"
-                  alt="Sustune Care"
-                  width={36}
-                  height={36}
+                  src="/brand/sustune_emblem_@3x.png"
+                  alt="Sustune Care Emblem"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-heading font-extrabold text-xl text-white tracking-tight">
-                SUSTUNE <span className="text-brand-gold">CARE</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-xl text-white tracking-tight">
+                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent">CARE</span>
+                </span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+                  Asset Stewardship &amp; Family Care
+                </span>
+              </div>
             </Link>
 
             <p className="text-xs text-slate-400 leading-relaxed">
