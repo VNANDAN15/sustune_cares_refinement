@@ -26,7 +26,7 @@ export const SharedFooter: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-extrabold text-xl text-white tracking-tight">
-                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent">CARE</span>
+                  SustuneCare
                 </span>
                 <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
                   Asset Stewardship &amp; Family Care

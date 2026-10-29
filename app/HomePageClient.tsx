@@ -95,7 +95,7 @@ export const HomePageClient: React.FC = () => {
 
               <div className="space-y-3">
                 <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-tight">
-                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent drop-shadow-sm">CARE</span>
+                  SustuneCare
                 </h1>
 
                 <p className="text-base sm:text-xl text-slate-200 font-medium max-w-xl leading-relaxed">
@@ -150,20 +150,32 @@ export const HomePageClient: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Main 3D Heraldic Emblem */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Ambient Warm Golden Aura */}
-                <div className="absolute inset-0 bg-brand-gold/25 rounded-full blur-3xl transform scale-125 pointer-events-none" />
-                
-                <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 drop-shadow-[0_20px_45px_rgba(201,151,56,0.45)] transition-transform duration-500 hover:scale-105">
-                  <Image
-                    src="/brand/sustune_emblem_@3x.png"
-                    alt="SustuneCare 3D Heraldic Emblem"
-                    fill
-                    priority
-                    className="object-contain"
-                  />
+            {/* Right Column: Animated 3D Heraldic Emblem & SustuneCare Monogram */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center lg:items-end">
+              <div className="flex flex-col items-center text-center">
+                <div className="relative animate-float-logo">
+                  {/* Ambient Warm Golden Aura with Pulse */}
+                  <div className="absolute inset-0 bg-brand-gold/30 rounded-full blur-3xl animate-glow-pulse pointer-events-none" />
+                  
+                  <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 drop-shadow-[0_25px_50px_rgba(201,151,56,0.45)] transition-transform duration-500 hover:scale-105">
+                    <Image
+                      src="/brand/sustune_emblem_@3x.png"
+                      alt="SustuneCare 3D Heraldic Emblem"
+                      fill
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* Name at the downside of the logo as SustuneCare */}
+                <div className="mt-4 sm:mt-5 space-y-1">
+                  <span className="font-heading font-black text-2xl sm:text-3xl md:text-4xl tracking-tight text-white block">
+                    SustuneCare
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-bold text-brand-gold tracking-[0.25em] uppercase block">
+                    Property Stewardship · Family Care
+                  </span>
                 </div>
               </div>
             </div>

@@ -105,7 +105,7 @@ export const SharedHeader: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-black text-xl sm:text-2xl tracking-tight text-brand-marine group-hover:text-brand-cerulean transition-colors leading-tight">
-                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-400 to-brand-gold bg-clip-text text-transparent">CARE</span>
+                  SustuneCare
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mt-0.5">
                   Property Stewardship · Family Care
