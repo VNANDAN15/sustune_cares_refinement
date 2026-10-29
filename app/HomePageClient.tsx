@@ -132,20 +132,14 @@ export const HomePageClient: React.FC = () => {
                 </a>
               </div>
 
-              {/* Direct Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
-                <Link
-                  href="/contact"
-                  className="px-7 py-3.5 rounded-btn bg-brand-cerulean hover:bg-white hover:text-brand-marine text-white font-bold text-xs sm:text-sm shadow-lg transition-all text-center flex items-center justify-center gap-2"
-                >
-                  <span>Schedule Consultation</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              {/* Action Button */}
+              <div className="pt-3">
                 <a
                   href="#service-arms"
-                  className="px-5 py-3.5 rounded-btn bg-slate-800/90 border border-slate-700 hover:border-brand-gold text-slate-200 font-semibold text-xs sm:text-sm transition-all text-center"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-btn bg-brand-cerulean hover:bg-white hover:text-brand-marine text-white font-bold text-xs sm:text-sm shadow-lg transition-all"
                 >
-                  Explore Dedicated Arms ↓
+                  <span>Our Services</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
