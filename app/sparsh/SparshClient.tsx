@@ -268,96 +268,144 @@ export const SparshClient: React.FC = () => {
         </div>
       </section>
 
-      {/* ===== CONCISE SERVICE GRID WITH READ MORE DETAILS ===== */}
+      {/* ===== SPARSH SERVICES: VISUAL-FIRST FLOWCHART & PHOTO CARDS ===== */}
       <section id="services-detail" className="py-20 bg-brand-mist/30 border-b border-slate-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-emerald">
               Service Pathways
             </span>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-marine tracking-tight">
               Verified Sparsh Family Care Services
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base">
               Every service is delivered under institutional protocols with real-time reporting to family members abroad.
             </p>
           </div>
 
+          {/* Visual AI-Generated Flowchart Infographic */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-brand-emerald/30 shadow-subtle-card space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-emerald animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-marine">
+                  Sparsh 4-Step Healthcare Journey Flowchart
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold text-slate-500">
+                1. Companion Matching → 2. Doctor Escort → 3. Digitized Notes → 4. Family Portal
+              </span>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-[16/9] w-full max-h-[460px] bg-slate-50">
+              <Image
+                src="/images/sparsh-care-flowchart.jpg"
+                alt="Sparsh Family Care 4-Step Process Flowchart Infographic"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Trimmed Visual Photo Service Cards */}
           <div className="grid md:grid-cols-2 gap-8">
-            {SPARSH_SERVICES.map((srv) => {
-              const isExpanded = expandedServiceId === srv.id;
-              return (
-                <div
-                  key={srv.id}
-                  className="bg-white rounded-card p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-subtle-card hover:border-brand-emerald/50 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-brand-emerald uppercase tracking-wider">
-                        {srv.tagline}
-                      </span>
-                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-brand-emerald flex items-center justify-center">
-                        <Heart className="w-5 h-5" />
-                      </div>
-                    </div>
+            {/* Card 1: Empathetic Care Companions */}
+            <div className="bg-white rounded-card overflow-hidden border border-slate-200 shadow-sm hover:shadow-subtle-card hover:border-brand-emerald/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/sparsh-companion-care.jpg"
+                    alt="Sparsh Empathetic Care Companions"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-brand-marine/90 text-brand-emerald-light border border-brand-emerald/40 backdrop-blur-sm">
+                    LANGUAGE &amp; CULTURAL COMPANIONSHIP
+                  </span>
+                </div>
 
-                    <h3 className="font-heading font-bold text-xl text-brand-marine">
-                      {srv.title}
-                    </h3>
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-emerald transition-colors">
+                    Empathetic Care Companions
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Language-matched, background-checked companions providing routine check-ins, social engagement, and practical errand support.
+                  </p>
 
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      {srv.summary}
-                    </p>
-
-                    {/* Deliverables summary */}
-                    <div className="space-y-1.5 pt-2 border-t border-slate-100">
-                      {srv.deliverables.map((deliv, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
-                          <span>{deliv}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Expandable "Read More" Detail Drawer */}
-                    {isExpanded && (
-                      <div className="mt-4 pt-4 border-t border-slate-100 bg-emerald-50/50 p-4 rounded-xl space-y-3 animate-fadeIn">
-                        <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-brand-marine">
-                          Service Inclusions &amp; Operational Details:
-                        </h4>
-                        <ul className="space-y-2 text-xs text-slate-600">
-                          {srv.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="flex items-start gap-2">
-                              <span className="text-brand-emerald font-bold mt-0.5">•</span>
-                              <span className="leading-relaxed">{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between gap-4">
-                    <button
-                      type="button"
-                      onClick={() => toggleExpand(srv.id)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-emerald hover:text-brand-emerald-dark transition-colors"
-                      aria-expanded={isExpanded}
-                    >
-                      <span>{isExpanded ? "Hide Details" : "Read More"}</span>
-                      {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                    </button>
-
-                    <Link
-                      href={`/contact?service=${encodeURIComponent(srv.serviceParam)}`}
-                      className="px-4 py-2 rounded-btn bg-slate-100 hover:bg-brand-emerald hover:text-white text-brand-marine text-xs font-bold transition-all"
-                    >
-                      Enquire for This Service
-                    </Link>
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Language &amp; cultural match
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Routine check-in visits
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Post-visit digital summary
+                    </span>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+
+              <div className="p-6 pt-0 mt-3 border-t border-slate-100">
+                <Link
+                  href="/contact?service=Sparsh%3A%20Empathetic%20Care%20Companions"
+                  className="w-full py-2.5 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-emerald hover:bg-brand-emerald-dark text-white"
+                >
+                  <span>Enquire for Companionship</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Doctor Escorts & Health Logs */}
+            <div className="bg-white rounded-card overflow-hidden border border-slate-200 shadow-sm hover:shadow-subtle-card hover:border-brand-emerald/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/sparsh-doctor-escort.jpg"
+                    alt="Sparsh Doctor Escorts and Health Logs"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-brand-marine/90 text-brand-emerald-light border border-brand-emerald/40 backdrop-blur-sm">
+                    CLINICAL ESCORT &amp; HEALTH LOGS
+                  </span>
+                </div>
+
+                <div className="p-6 space-y-3">
+                  <h3 className="font-heading font-bold text-xl text-brand-marine group-hover:text-brand-emerald transition-colors">
+                    Doctor Escorts &amp; Health Logs
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Door-to-door escort to medical consultations, pharmacy fulfillment, and transparent digitized notes delivered directly to NRI family.
+                  </p>
+
+                  <div className="pt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Clinic &amp; hospital escort
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Digitized physician summary
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-[11px] font-semibold text-brand-emerald">
+                      <CheckCircle2 className="w-3 h-3" /> Prescription scan &amp; refill
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0 mt-3 border-t border-slate-100">
+                <Link
+                  href="/contact?service=Sparsh%3A%20Doctor%20Escorts%20%26%20Health%20Logs"
+                  className="w-full py-2.5 px-4 rounded-btn text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2 bg-brand-emerald hover:bg-brand-emerald-dark text-white"
+                >
+                  <span>Enquire for Doctor Escorts</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

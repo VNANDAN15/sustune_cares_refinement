@@ -84,76 +84,89 @@ export const HomePageClient: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-brand-marine/90 to-brand-marine-deep/95" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6 sm:space-y-8">
-          {/* Main Big Highlight: Official 3D Heraldic Emblem */}
-          <div className="relative inline-block">
-            {/* Ambient Gold Glow Filter */}
-            <div className="absolute inset-0 bg-brand-gold/25 rounded-full blur-3xl transform scale-150 pointer-events-none" />
-            
-            <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto drop-shadow-[0_20px_40px_rgba(201,151,56,0.4)] transition-transform duration-500 hover:scale-105">
-              <Image
-                src="/brand/sustune_emblem_@3x.png"
-                alt="Sustune Care 3D Heraldic Emblem"
-                fill
-                priority
-                className="object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Main Brand Title & Monogram */}
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-brand-gold/60 text-brand-gold text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase shadow-lg backdrop-blur-md">
-              <Shield className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-              <span>The Official Emblem of Care &amp; Stewardship</span>
-            </div>
-
-            <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-none">
-              SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent drop-shadow-sm">CARE</span>
-            </h1>
-
-            <p className="text-base sm:text-xl text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed pt-1">
-              Institutional Asset Stewardship &amp; Compassionate Family Healthcare in Hyderabad &amp; Bengaluru.
-            </p>
-          </div>
-
-          {/* Visual Pathway Anchors (Zero Text Clutter) */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 pt-1 text-xs font-semibold text-slate-200">
-            <a
-              href="#service-arms"
-              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-gold flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
-            >
-              <Building className="w-3.5 h-3.5 text-brand-gold shrink-0" />
-              <span>Aegis Property</span>
-            </a>
-            <a
-              href="#service-arms"
-              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-emerald flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
-            >
-              <Heart className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
-              <span>Sparsh Family</span>
-            </a>
-            <a
-              href="#service-arms"
-              className="px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-cerulean flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
-            >
-              <Stethoscope className="w-3.5 h-3.5 text-brand-cerulean shrink-0" />
-              <span>Home &amp; Personal Care</span>
-            </a>
-          </div>
-
-          {/* Smooth Scroll Cue */}
-          <div className="pt-4">
-            <a
-              href="#emblem-meaning"
-              className="inline-flex flex-col items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-gold transition-colors group"
-              aria-label="Scroll down to understand the emblem"
-            >
-              <span className="tracking-widest uppercase text-[10px]">Explore Sustune Care</span>
-              <div className="w-7 h-7 rounded-full border border-slate-700 group-hover:border-brand-gold flex items-center justify-center transition-transform group-hover:translate-y-1">
-                <ArrowDown className="w-3.5 h-3.5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: Sentences, Brand Title & Pathways */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-brand-gold/60 text-brand-gold text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase shadow-lg backdrop-blur-md">
+                <Shield className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                <span>The Official Emblem of Care &amp; Stewardship</span>
               </div>
-            </a>
+
+              <div className="space-y-3">
+                <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-tight">
+                  SUSTUNE <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent drop-shadow-sm">CARE</span>
+                </h1>
+
+                <p className="text-base sm:text-xl text-slate-200 font-medium max-w-xl leading-relaxed">
+                  Institutional Asset Stewardship &amp; Compassionate Family Healthcare in Hyderabad &amp; Bengaluru.
+                </p>
+
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xl">
+                  Dedicated local coordination desks providing transparent ground audits, vetted companion care, and legal fiduciary protection for global Indian families.
+                </p>
+              </div>
+
+              {/* Visual Pathway Anchors */}
+              <div className="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-semibold text-slate-200">
+                <a
+                  href="#service-arms"
+                  className="px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-gold flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
+                >
+                  <Building className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                  <span>Aegis Property</span>
+                </a>
+                <a
+                  href="#service-arms"
+                  className="px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-emerald flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
+                >
+                  <Heart className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
+                  <span>Sparsh Family</span>
+                </a>
+                <a
+                  href="#service-arms"
+                  className="px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 hover:border-brand-cerulean flex items-center gap-2 backdrop-blur-md transition-all hover:scale-105"
+                >
+                  <Stethoscope className="w-3.5 h-3.5 text-brand-cerulean shrink-0" />
+                  <span>Home &amp; Personal Care</span>
+                </a>
+              </div>
+
+              {/* Direct Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
+                <Link
+                  href="/contact"
+                  className="px-7 py-3.5 rounded-btn bg-brand-cerulean hover:bg-white hover:text-brand-marine text-white font-bold text-xs sm:text-sm shadow-lg transition-all text-center flex items-center justify-center gap-2"
+                >
+                  <span>Schedule Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="#service-arms"
+                  className="px-5 py-3.5 rounded-btn bg-slate-800/90 border border-slate-700 hover:border-brand-gold text-slate-200 font-semibold text-xs sm:text-sm transition-all text-center"
+                >
+                  Explore Dedicated Arms ↓
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Main 3D Heraldic Emblem */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Ambient Warm Golden Aura */}
+                <div className="absolute inset-0 bg-brand-gold/25 rounded-full blur-3xl transform scale-125 pointer-events-none" />
+                
+                <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 drop-shadow-[0_20px_45px_rgba(201,151,56,0.45)] transition-transform duration-500 hover:scale-105">
+                  <Image
+                    src="/brand/sustune_emblem_@3x.png"
+                    alt="SustuneCare 3D Heraldic Emblem"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
