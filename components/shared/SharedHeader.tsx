@@ -44,9 +44,9 @@ export const SharedHeader: React.FC = () => {
       {/* Top Utility Bar */}
       <aside
         aria-label="Contact information"
-        className="bg-brand-marine text-white text-xs py-2 px-4 border-b border-brand-gold/30"
+        className="bg-brand-marine text-white text-xs py-2 border-b border-brand-gold/30"
       >
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-brand-gold/20 text-brand-gold border border-brand-gold/40">
               ACTIVE HUBS
@@ -83,18 +83,18 @@ export const SharedHeader: React.FC = () => {
       {/* Main Sticky Header — Light background with full-colour logo */}
       <header
         className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300 ${
-          scrolled ? "shadow-md py-2" : "py-3"
+          scrolled ? "shadow-md py-1.5" : "py-2.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Official Logo — 3D Heraldic Emblem + Brand Wordmark */}
             <Link
               href="/"
-              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-gold/50 rounded-lg p-1 transition-all"
+              className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus:ring-2 focus:ring-brand-gold/50 rounded-lg py-1 pr-2 -ml-0.5 transition-all"
               aria-label="Sustune Care — Home"
             >
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 shrink-0 drop-shadow-[0_2px_8px_rgba(201,151,56,0.25)] transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-11 h-11 sm:w-14 sm:h-14 shrink-0 drop-shadow-[0_3px_10px_rgba(201,151,56,0.28)] transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/brand/sustune_emblem_@3x.png"
                   alt="Sustune Care 3D Heraldic Emblem"
@@ -104,10 +104,10 @@ export const SharedHeader: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-black text-xl sm:text-2xl tracking-tight text-brand-marine group-hover:text-brand-cerulean transition-colors leading-tight">
+                <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight text-brand-marine group-hover:text-brand-cerulean transition-colors leading-tight">
                   SustuneCare
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mt-0.5">
+                <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none mt-1">
                   Property Stewardship · Family Care
                 </span>
               </div>
