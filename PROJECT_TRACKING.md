@@ -4,9 +4,9 @@
 |---|---|
 | **Team** | To be confirmed |
 | **Theme** | Sustune Care — visual-first, interactive, multi-page service discovery website |
-| **URL** | [https://ranch-traditions-buried-nut.trycloudflare.com](https://ranch-traditions-buried-nut.trycloudflare.com) |
+| **URL** | [https://sustunecaresrefinement.vercel.app](https://sustunecaresrefinement.vercel.app) |
 | **Technology Used** | Next.js 14 (App Router), TypeScript (Strict), Tailwind CSS, Lucide React |
-| **Hosted On** | Cloudflare Edge & Next.js Production Engine (GitHub: `sustune_cares_refinement`) |
+| **Hosted On** | Vercel Production (Team: `vnandan1502-1477s-projects`) |
 | **Code Repository** | https://github.com/VNANDAN15/sustune_cares_refinement.git |
 
 ---
